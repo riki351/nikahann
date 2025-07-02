@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan | Rizki & Wonnyong</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for elegant typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles for the new theme */
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #FBFBFB; /* Off-white background */
+            color: #6B6B6B; /* Softer gray for text */
+            overflow-x: hidden;
+        }
+        .font-great-vibes {
+            font-family: 'Great Vibes', cursive;
+            color: #C3A995; /* Muted, sophisticated beige/rose gold */
+            font-weight: 400;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Styling for the cover overlay */
+        #cover-overlay {
+            background: rgba(251, 251, 251, 0.6); /* Lighter, semi-transparent overlay */
+            backdrop-filter: blur(1.5px);
+        }
+        .section-title {
+            color: #4A4A4A;
+        }
+        .btn-primary {
+            background-color: #C3A995;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #B29884;
+        }
+        .btn-outline {
+            border: 1px solid #C3A995;
+            color: #C3A995;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn-outline:hover {
+            background-color: #C3A995;
+            color: #fff;
+        }
+
+        /* Animation on Scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Sticky Nav */
+        #sticky-nav {
+            transition: top 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 
+    ============================================================
+    AUDIO SECTION
+    ============================================================
+    -->
+    <audio id="background-music" loop>
+        <source src="https://raw.githubusercontent.com/riki351/nikahan/main/Penjaga%20Hati%20X%20Bergema%20Sampai%20Selamanya%20by%20Nadhif%20Basalamah%20(MASHUP%20BY%20RANGNOV).mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- 
+    ============================================================
+    COVER/HERO SECTION
+    ============================================================
+    -->
+    <div id="cover-section" class="fixed top-0 left-0 w-full h-full z-50 transition-opacity duration-1000">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/1730877/pexels-photo-1730877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
+        <div id="cover-overlay" class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+            <p class="text-sm tracking-widest text-gray-700">WE ARE GETTING MARRIED</p>
+            <h1 class="font-great-vibes text-7xl md:text-9xl my-4">Rizki & Wonnyong</h1>
+            <p class="mb-8 text-gray-600">Kepada Bapak/Ibu/Saudara/i,</p>
+            <p id="guest-name" class="font-semibold text-xl text-gray-800 mb-8">Tamu Undangan</p>
+            <button id="open-invitation-btn" class="btn-outline rounded-full px-8 py-3 text-sm font-semibold">
+                Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    <!-- 
+    ============================================================
+    STICKY NAVIGATION
+    ============================================================
+    -->
+    <nav id="sticky-nav" class="fixed top-[-100px] left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-40">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="flex justify-center items-center h-16 space-x-6 md:space-x-10 text-sm text-gray-600">
+                <a href="#couple" class="hover:text-C3A995 transition">Mempelai</a>
+                <a href="#story" class="hover:text-C3A995 transition">Kisah Kami</a>
+                <a href="#event" class="hover:text-C3A995 transition">Acara</a>
+                <a href="#gallery" class="hover:text-C3A995 transition">Galeri</a>
+                <a href="#wishes" class="hover:text-C3A995 transition">Ucapan</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+    ============================================================
+    MAIN CONTENT
+    ============================================================
+    -->
+    <main id="main-content" class="hidden opacity-0 transition-opacity duration-1000">
+        <!-- Introduction Section -->
+        <section id="intro" class="min-h-screen flex items-center justify-center text-center p-8 bg-cover bg-fixed" style="background-image: url('https://images.pexels.com/photos/2253879/pexels-photo-2253879.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+            <div class="bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-lg shadow-lg max-w-2xl animate-on-scroll">
+                <h2 class="font-great-vibes text-6xl md:text-7xl mb-4">You Are Invited</h2>
+                <p class="text-xl leading-relaxed text-gray-600">
+                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
+                </p>
+                <p class="mt-4 font-semibold text-gray-700 text-lg">(QS. Ar-Rum: 21)</p>
+            </div>
+        </section>
+
+        <!-- Couple Section -->
+        <section id="couple" class="py-28 px-8 animate-on-scroll">
+            <div class="text-center mb-20">
+                <p class="text-sm tracking-widest text-gray-500">DENGAN MEMOHON RAHMAT ALLAH SWT</p>
+                <h2 class="font-great-vibes text-7xl mt-2 section-title">Kami Mengikat Janji</h2>
+            </div>
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24">
+                <!-- Groom -->
+                <div class="text-center">
+                    <img src="https://raw.githubusercontent.com/riki351/nikahan/main/coba.jpg" alt="Foto Mempelai Pria" class="w-56 h-56 mx-auto rounded-full object-cover shadow-xl mb-6">
+                    <h3 class="font-great-vibes text-6xl">Muhammad Rizki Ramadhnai</h3>
+                    <p class="text-gray-500 mt-4 text-lg">Putra dari Pasangan</p>
+                    <p class="font-semibold text-gray-700 mt-1 text-lg">Bapak I Made Wijaya & Ibu Ni Ketut Sari</p>
+                </div>
+                <!-- Bride -->
+                <div class="text-center">
+                    <img src="https://raw.githubusercontent.com/riki351/nikahan/main/coba 1.jpg" alt="Foto Mempelai Wanita" class="w-56 h-56 mx-auto rounded-full object-cover shadow-xl mb-6">
+                    <h3 class="font-great-vibes text-6xl">Wonnyong</h3>
+                    <p class="text-gray-500 mt-4 text-lg">Putri dari Pasangan</p>
+                    <p class="font-semibold text-gray-700 mt-1 text-lg">Bapak I Gede Pratama & Ibu Luh Sriasih</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Story Section -->
+        <section id="story" class="py-28 px-8 bg-white/50 animate-on-scroll">
+            <div class="text-center mb-20">
+                <h2 class="font-great-vibes text-7xl mt-2 section-title">Kisah Kami</h2>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <div class="relative pl-8 sm:pl-12 py-6 group">
+                    <div class="absolute top-0 left-0 h-full w-0.5 bg-gray-200"></div>
+                    <div class="absolute top-4 left-[-10px] sm:left-[-22px] w-5 h-5 bg-C3A995 rounded-full border-4 border-white"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Pertama Bertemu - 2021</h3>
+                    <p class="mt-2 text-gray-600 text-lg">Kisah kami berawal dari sebuah ketidaksengajaan yang ternyata adalah awal dari takdir terindah. Momen sederhana yang kini menjadi kenangan paling berharga.</p>
+                </div>
+                <div class="relative pl-8 sm:pl-12 py-6 group">
+                    <div class="absolute top-0 left-0 h-full w-0.5 bg-gray-200"></div>
+                    <div class="absolute top-4 left-[-10px] sm:left-[-22px] w-5 h-5 bg-C3A995 rounded-full border-4 border-white"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Lamaran - 2024</h3>
+                    <p class="mt-2 text-gray-600 text-lg">Dengan restu keluarga, kami memantapkan hati untuk melangkah ke jenjang yang lebih serius, mengikat janji untuk selamanya bersama.</p>
+                </div>
+                <div class="relative pl-8 sm:pl-12 py-6 group">
+                    <div class="absolute top-0 left-0 h-full w-0.5 bg-gray-200"></div>
+                    <div class="absolute top-4 left-[-10px] sm:left-[-22px] w-5 h-5 bg-C3A995 rounded-full border-4 border-white"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Menuju Hari Bahagia - 2025</h3>
+                    <p class="mt-2 text-gray-600 text-lg">Dan kini, kami mengundang Anda untuk menjadi saksi dari janji suci kami, membuka lembaran baru sebagai sepasang suami istri.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details Section -->
+        <section id="event" class="py-28 px-8 animate-on-scroll">
+            <div class="text-center mb-20">
+                <h2 class="font-great-vibes text-7xl mt-2 section-title">Akad & Resepsi</h2>
+            </div>
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8">
+                <!-- Akad Nikah -->
+                <div class="bg-white p-10 rounded-lg shadow-lg text-center w-full">
+                    <h3 class="font-great-vibes text-6xl mb-5">Akad Nikah</h3>
+                    <p class="font-semibold text-xl text-gray-800">Jumat, 18 Juli 2025</p>
+                    <p class="text-gray-500 text-lg">10:00 WIB - Selesai</p>
+                    <hr class="my-6 border-gray-200">
+                    <p class="text-gray-600 text-lg">Bertempat di Kediaman Mempelai Pria, Jl. Kusuma Bangsa No. 10, Natuna, Kepri.</p>
+                    <a href="https://maps.google.com" target="_blank" class="mt-6 inline-block btn-outline px-6 py-2 rounded-full text-sm">Lihat Peta</a>
+                </div>
+                <!-- Resepsi -->
+                <div class="bg-white p-10 rounded-lg shadow-lg text-center w-full">
+                    <h3 class="font-great-vibes text-6xl mb-5">Resepsi</h3>
+                    <p class="font-semibold text-xl text-gray-800">Jumat, 18 Juli 2025</p>
+                    <p class="text-gray-500 text-lg">13:00 WIB - Selesai</p>
+                    <hr class="my-6 border-gray-200">
+                    <p class="text-gray-600 text-lg">Bertempat di Kediaman Mempelai Pria, Jl. Kusuma Bangsa No. 10, Natuna, Kepri.</p>
+                    <a href="https://maps.google.com" target="_blank" class="mt-6 inline-block btn-outline px-6 py-2 rounded-full text-sm">Lihat Peta</a>
+                </div>
+            </div>
+            
+            <!-- Countdown Timer -->
+            <div id="countdown" class="max-w-2xl mx-auto mt-24 text-center">
+                 <div class="grid grid-cols-4 gap-4 text-gray-700">
+                    <div><div id="days" class="text-5xl font-light">00</div><div class="text-sm text-gray-500 tracking-widest">HARI</div></div>
+                    <div><div id="hours" class="text-5xl font-light">00</div><div class="text-sm text-gray-500 tracking-widest">JAM</div></div>
+                    <div><div id="minutes" class="text-5xl font-light">00</div><div class="text-sm text-gray-500 tracking-widest">MENIT</div></div>
+                    <div><div id="seconds" class="text-5xl font-light">00</div><div class="text-sm text-gray-500 tracking-widest">DETIK</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-28 px-8 bg-white/50 animate-on-scroll">
+            <div class="text-center mb-20">
+                 <h2 class="font-great-vibes text-7xl mt-2 section-title">Momen Bahagia</h2>
+            </div>
+            <div class="max-w-7xl mx-auto columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                <img src="https://raw.githubusercontent.com/riki351/nikahan/main/coba.jpg" alt="Galeri 1" class="rounded-lg shadow-md w-full break-inside-avoid">
+                <img src="https://images.pexels.com/photos/1689283/pexels-photo-1689283.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Galeri 2" class="rounded-lg shadow-md w-full break-inside-avoid">
+                <img src="https://raw.githubusercontent.com/riki351/nikahan/main/coba 1.jpg" alt="Galeri 3" class="rounded-lg shadow-md w-full break-inside-avoid">
+                <img src="https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Galeri 4" class="rounded-lg shadow-md w-full break-inside-avoid">
+                <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Galeri 5" class="rounded-lg shadow-md w-full break-inside-avoid">
+                <img src="https://raw.githubusercontent.com/riki351/nikahan/main/coba 2.jpg" alt="Galeri 6" class="rounded-lg shadow-md w-full break-inside-avoid">
+            </div>
+        </section>
+
+        <!-- Gift Section -->
+        <section id="gift" class="py-28 px-8 animate-on-scroll">
+            <div class="text-center mb-16">
+                <h2 class="font-great-vibes text-7xl mt-2 section-title">Kirim Hadiah</h2>
+                <p class="max-w-2xl mx-auto mt-4 text-gray-600 text-lg">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara digital.</p>
+            </div>
+            <div class="max-w-sm mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
+                <h3 class="text-xl font-semibold text-gray-800">BCA</h3>
+                <p id="account-number" class="text-3xl my-4 text-C3A995 font-light tracking-widest">1234 5678 9012</p>
+                <p class="text-gray-700 text-lg">a.n. Muhammad Rizki Ramadhnai</p>
+                <button id="copy-btn" class="mt-6 btn-outline px-6 py-2 rounded-full text-sm">Salin No. Rekening</button>
+            </div>
+        </section>
+
+        <!-- Wishes/Guestbook Section -->
+        <section id="wishes" class="py-28 px-8 bg-white/50 animate-on-scroll">
+            <div class="text-center mb-16">
+                 <h2 class="font-great-vibes text-7xl mt-2 section-title">Ucapan & Doa</h2>
+            </div>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <form>
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 text-sm font-medium mb-2">Nama</label>
+                        <input type="text" id="name" class="border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 text-lg focus:outline-none focus:ring-2 focus:ring-C3A995/50" placeholder="Nama Anda">
+                    </div>
+                    <div class="mb-6">
+                        <label for="wish" class="block text-gray-700 text-sm font-medium mb-2">Ucapan</label>
+                        <textarea id="wish" rows="4" class="border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 text-lg focus:outline-none focus:ring-2 focus:ring-C3A995/50" placeholder="Tulis ucapan Anda di sini..."></textarea>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn-primary font-semibold py-3 px-8 rounded-full">
+                            Kirim
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Closing Section -->
+        <footer class="text-center py-24 px-8">
+             <p class="max-w-2xl mx-auto text-gray-600 text-lg mb-8">Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
+             <h3 class="font-great-vibes text-6xl mb-2">Terima Kasih</h3>
+             <p class="mt-16 text-sm text-gray-400">Dibuat dengan ❤️</p>
+        </footer>
+        
+        <!-- Music Control Button -->
+        <button id="music-toggle-btn" class="hidden fixed bottom-5 right-5 w-12 h-12 bg-white/80 text-gray-700 rounded-full flex items-center justify-center z-40 backdrop-blur-sm shadow-lg">
+            <svg id="play-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M4.018 15.132A1.25 1.25 0 005.25 14.15V5.85a1.25 1.25 0 00-2.12-1.033L1.25 6.25v7.5l1.88-1.432a1.25 1.25 0 01.888-.186zM15.982 15.132A1.25 1.25 0 0114.75 14.15V5.85a1.25 1.25 0 012.12-1.033L18.75 6.25v7.5l-1.88-1.432a1.25 1.25 0 00-.888-.186z"></path></svg>
+            <svg id="pause-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M5.75 4.5a.75.75 0 00-.75.75v9.5a.75.75 0 001.5 0V5.25a.75.75 0 00-.75-.75zm8.5 0a.75.75 0 00-.75.75v9.5a.75.75 0 001.5 0V5.25a.75.75 0 00-.75-.75z"></path></svg>
+        </button>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const coverSection = document.getElementById('cover-section');
+            const mainContent = document.getElementById('main-content');
+            const openButton = document.getElementById('open-invitation-btn');
+            const audio = document.getElementById('background-music');
+            const musicToggleButton = document.getElementById('music-toggle-btn');
+            const playIcon = document.getElementById('play-icon');
+            const pauseIcon = document.getElementById('pause-icon');
+            const guestNameEl = document.getElementById('guest-name');
+            const copyBtn = document.getElementById('copy-btn');
+            const accountNumber = document.getElementById('account-number').innerText;
+            const stickyNav = document.getElementById('sticky-nav');
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestName = urlParams.get('to');
+            if (guestName) {
+                guestNameEl.textContent = guestName.replace(/\+/g, ' ');
+            }
+
+            function openInvitation() {
+                audio.play().catch(error => console.log("Autoplay was prevented:", error));
+                pauseIcon.classList.remove('hidden');
+                playIcon.classList.add('hidden');
+                coverSection.style.opacity = '0';
+                setTimeout(() => {
+                    coverSection.style.display = 'none';
+                    mainContent.classList.remove('hidden');
+                    mainContent.style.opacity = '1';
+                    musicToggleButton.classList.remove('hidden');
+                    stickyNav.style.top = '0px'; // Show nav
+                }, 1000);
+            }
+
+            function toggleMusic() {
+                if (audio.paused) {
+                    audio.play();
+                    pauseIcon.classList.remove('hidden');
+                    playIcon.classList.add('hidden');
+                } else {
+                    audio.pause();
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                }
+            }
+            
+            function copyToClipboard() {
+                const tempInput = document.createElement('input');
+                tempInput.value = accountNumber.replace(/\s/g, '');
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                copyBtn.innerText = 'Berhasil Disalin!';
+                setTimeout(() => {
+                    copyBtn.innerText = 'Salin No. Rekening';
+                }, 2000);
+            }
+
+            const weddingDate = new Date("Juli 18, 2025 10:00:00").getTime();
+            const countdownInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("countdown").innerHTML = "<div class='col-span-4 text-xl font-semibold'>Acara Telah Berlangsung</div>";
+                }
+            }, 1000);
+
+            // Animation on scroll logic
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            openButton.addEventListener('click', openInvitation);
+            musicToggleButton.addEventListener('click', toggleMusic);
+            copyBtn.addEventListener('click', copyToClipboard);
+        });
+    </script>
+
+</body>
+</html>
